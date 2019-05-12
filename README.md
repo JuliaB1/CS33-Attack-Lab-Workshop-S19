@@ -89,6 +89,8 @@ We can create a new text file, say, "solution.txt", and put the following text i
 32 05 40 00 00 00 00 00
 
 
+Note that the input is 40 bytes of padding (indicated by 40 successive "00" strings, separated by spaces) followed by the address of the nightking() function (0x400532 entered in little endian format, and right-padded with "00" strings to clear out the rest of the space pointed to by the address).
+
 And then use hex2raw in order to feed this as input into the sample executable, as follows:
 
 `$ ./hex2raw < solution.txt | ./sample`
