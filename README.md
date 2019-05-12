@@ -16,15 +16,19 @@ You can confirm these files were added properly by listing the contents of your 
 
 ### Step 2: Compile the code
 
+Enter the following into the terminal:
+
 `$ make`
 
 This generates an executable (called "sample") that contains all the info you'll need to perform a successful buffer overflow attack. Now you're ready to attack!
+
+(If you're curious, the reason why this command works is because of the Makefile, which you'll learn more about in later CS course).
 
 ## 2. Demo Overview
 
 ### Goal
 
-Perform a simple buffer overflow attack by overwriting the return address of the caller function with the address of another function (in this case, that "another function" is the nightking function).
+Perform a simple buffer overflow attack by overwriting the return address of the caller function with the address of another function (in this case, that "another function" is the nightking() function).
 
 ### Program Setup
 
