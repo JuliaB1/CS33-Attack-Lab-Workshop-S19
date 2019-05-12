@@ -26,7 +26,7 @@ Enter the following into the terminal:
 
 This generates an executable (called "sample") that contains all the info you'll need to perform a successful buffer overflow attack. Now you're ready to attack!
 
-(If you're curious, the reason why this command works is because of the Makefile, which you'll learn more about in later CS course).
+(If you're curious, the reason why this command works is because of the Makefile, which you'll learn more about in later CS courses).
 
 ## 2. Demo Overview
 
@@ -61,6 +61,8 @@ This will return a prompt waiting for our input. Go ahead and type whatever you 
 
 
 ### Step 2: Examine the code
+
+Okay, so we know that guessing and checking input of different lengths will *eventually* get us to the answer, but that takes too much time. A faster way would be to examine how the code works, which we can do with:
 
 `$ objdump -d sample`
 
