@@ -1,7 +1,7 @@
 # CS33 Attack Lab Workshop: How to Break Code Using Gets
 
 ## Workshop Slides
-*COMIN' SOON*
+https://docs.google.com/presentation/d/11kLmMykxGPWS-V7f4HYtSFzHBNwE5GvXgsGnMQmGKOE/edit?usp=sharing
 
 ## 1. Setting up the Demo
 
